@@ -1,0 +1,6 @@
+{% section 'custom-hero' %}
+    <div class="section cc--products">
+      <div class="container cc--standard-page">
+        <div class="rich-text-block w-richtext">{{ page.content }}</div>
+      </div>
+    </div>
