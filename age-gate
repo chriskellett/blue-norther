@@ -20,7 +20,7 @@
       <div class="age-gate__from-wrapper">
         <div class="contact-form__block w-form">
          <form class="age-gate__form js-age-gate-form">
-            <div id="w-node-8ea9a93ef990-a93ef989" class="div-block-21"><img src="{{ 'Blue-Norther-Logo-Colour.svg' | asset_url }}" loading="lazy" alt="Blue Norther Logo" class="image-34">
+            <div id="w-node-8ea9a93ef990-a93ef989" class="div-block-21"><img src="{{ 'Logo-CreamText.svg' | asset_url }}" loading="lazy" alt="Blue Norther Logo" class="image-34">
               <h2>{{ 'index.H2_0' | t }}<br>{{ 'index.H2_1' | t }}</h2>
               <div class="s4-p1">{{ 'index.DIV_2' | t }}</div>
             </div>
