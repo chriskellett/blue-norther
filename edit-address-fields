@@ -1,0 +1,73 @@
+<style>
+  .add-addr-2 input {
+ color: rgba(27, 25, 21, 0.5);
+  }
+</style>
+<!-- First Name -->
+<div id="w-node-f54a96eafbf1-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressFirstName_{{address.id}}" class="field-label">{{ 'general_addresses.first_name' | t }}</label>
+    <input class="form__input-2 cream w-input" type="text" name="address[first_name]" id="AddressFirstName_{{address.id}}" class="{{input_classes}}" value="{{ form.first_name }}" autocapitalize="words">
+</div>
+<!-- Last Name -->
+<div id="w-node-f54a96eafbf5-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressLastName_{{address.id}}" class="field-label">{{ 'general_addresses.last_name' | t }}</label>
+    <input class="form__input-2 cream w-input" type="text" name="address[last_name]" id="AddressLastName_{{address.id}}" class="{{input_classes}}" value="{{ form.last_name }}" autocapitalize="words">
+</div>
+<!-- Company -->
+<div id="w-node-f54a96eafbf5-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressCompany_{{address.id}}" class="field-label">{{ 'general_addresses.company' | t }}</label>
+    <input class="form__input-2 cream w-input" type="text" name="address[company]" id="AddressCompany_{{address.id}}" class="{{input_classes}}" value="{{ form.company }}" autocapitalize="words">
+</div>
+<!-- Address 1 -->
+<div id="w-node-f54a96eafbf5-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressAddress1_{{address.id}}" class="field-label">{{ 'general_addresses.address1' | t }}</label>
+    <input class="form__input-2 cream w-input" type="text" name="address[address1]" id="AddressAddress1_{{address.id}}" class="{{input_classes}}" value="{{ form.address1 }}" autocapitalize="words">
+</div>
+<!-- Address 2 -->
+<div id="w-node-f54a96eafbf5-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressAddress2_{{address.id}}" class="field-label">{{ 'general_addresses.address2' | t }}</label>
+    <input class="form__input-2 cream w-input" type="text" name="address[address2]" id="AddressAddress2_{{address.id}}" class="{{input_classes}}" value="{{ form.address2 }}" autocapitalize="words">
+</div>
+<!-- Address City -->
+<div id="w-node-f54a96eafbf5-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressCity_{{address.id}}" class="field-label">{{ 'general_addresses.city' | t }}</label>
+    <input class="form__input-2 cream w-input" type="text" name="address[city]" id="AddressCity_{{address.id}}" class="{{input_classes}}" value="{{ form.city }}" autocapitalize="words">
+</div>
+<!-- Address Country -->
+<div id="w-node-f54a96eafc11-dee7b897" class="form__input-wrapper"><label for="AddressCountry_{{address.id}}" class="field-label">{{ 'general_addresses.country' | t }}</label>
+    <select class="form__input-2 select cream w-select" name="address[country]" id="AddressCountry_{{address.id}}" class="{{select_classes}}" data-default="{{ form.country }}">
+        {{ country_option_tags }}
+    </select>
+</div>
+<!-- Address Province -->
+<div id="w-node-f54a96eafbf5-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressProvince_{{address.id}}" class="field-label">{{ 'general_addresses.province' | t }}</label>
+      <input class="form__input-2 cream w-input" type="text" name="address[province]" id="AddressProvince_{{address.id}}" class="{{input_classes}}" value="{{ form.province }}" data-default="{{ form.province }}"autocapitalize="words">
+
+</div>
+<!-- Address Zip -->
+<div id="w-node-f54a96eafbf5-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressZip_{{address.id}}" class="field-label">{{ 'general_addresses.zip' | t }}</label>
+    <input class="form__input-2 cream w-input" type="text" name="address[zip]" id="AddressZip_{{address.id}}" class="{{input_classes}}" value="{{ form.zip }}" autocapitalize="characters">
+</div>
+<!-- Address Phone -->
+<div id="w-node-f54a96eafbf5-dee7b897" class="form__input-wrapper cream">
+    <label for="AddressPhone_{{address.id}}" class="field-label">{{ 'general_addresses.phone' | t }}</label>
+    <input class="form__input-2 cream w-input" type="tel" name="address[phone]" id="AddressPhone_{{address.id}}" class="{{input_classes}}" value="{{ form.phone }}" pattern="[0-9\-]*">
+</div>
+<!-- Checkbox -->
+<style>
+.checkbox-field input {opacity:0;position:absolute;z-index:1;width:220px;height:30px;margin-left:-30px;cursor:pointer}
+</style>
+<div id="w-node-f54a96eafc19-dee7b897" class="add-addr__default-wrapper">
+    <label class="w-checkbox checkbox-field" for="address_default_address__{{address.id}}">
+        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox-2"></div>
+{{ form.set_as_default_checkbox }}        
+        <span class="s4-p1 default w-form-label">{{ 'general_addresses.set_default' | t }}</span>
+    </label>
+</div>
+<!-- Submit -->
+<div id="w-node-f54a96eafc1e-dee7b897" class="add-addr__options-wrapper">
+    <input type="submit" value="Update Address" data-wait="Please wait..." class="purchase-button-2 cream w-button">
+</div>
+
