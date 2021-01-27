@@ -1,0 +1,213 @@
+{% layout 'collection' %}
+      
+  <div class="page-wrapper">
+    <div data-collapse="small" data-animation="over-left" data-duration="400" data-doc-height="1" data-no-scroll="1" role="banner" class="navigation cream w-nav">
+      <div class="nav_background-shade"></div>
+      <div class="nav-line"></div>
+      <div class="container cc--nav">
+        <div class="nav-wrapper">
+          <nav role="navigation" class="nav-menu w-nav-menu">
+            <a title="Close Links Menu" href="#" class="close-menu-button w-inline-block"><img src="{{ 'Close-X.svg' | asset_url }}" loading="eager" alt=""></a>
+            <div class="nav-menu__linkslider">
+              <a href="/pages/our-seltzer" class="nav-link cream w-nav-link">{{ 'collection.A_0' | t }}</a>
+              <a href="/pages/our-story" class="nav-link cream w-nav-link">{{ 'collection.A_1' | t }}</a>
+              <a href="/collections/all" class="nav-link cream w-nav-link">{{ 'collection.A_2' | t }}</a>
+              <a href="/" class="brand-link w-nav-brand"><img src="{{ 'Logo-BlackText.png' | asset_url }}" loading="eager" sizes="(max-width: 767px) 100vw, 130px" srcset="{{ 'Logo-BlackText-p-500.png' | asset_url }} 500w, {{ 'Logo-BlackText.png' | asset_url }} 583w" alt="Blue Norther Hard Seltzer Logo" class="brand-logo cream small"></a>
+              <a href="https://find.drinkbluenorther.com/" target="_blank" class="nav-link cream w-nav-link">{{ 'collection.A_3' | t }}</a>
+              <a href="/pages/order" target="_blank" class="nav-link cream w-nav-link">{{ 'collection.A_4' | t }}</a>
+            </div>
+            <div class="nav-menu__cans-image"></div>
+          </nav>
+          <div class="nav-menu-button small w-nav-button"><img src="{{ 'Nav-On-Cream.svg' | asset_url }}" loading="lazy" width="25" alt=""></div>
+          <a href="/" class="brand-link cc--mobile w-nav-brand"><img src="{{ 'Logo-BlackText.png' | asset_url }}" srcset="{{ 'Logo-BlackText-p-500.png' | asset_url }} 500w, {{ 'Logo-BlackText.png' | asset_url }} 583w" sizes="(max-width: 767px) 130px, 100vw" alt="Blue Norther Hard Seltzer Logo" class="brand-logo cream small"></a>
+          <div data-node-type="commerce-cart-wrapper" data-open-product="" data-wf-cart-type="rightSidebar" data-wf-cart-query="" data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper cart-button nav-link small">
+            <a href="#" data-node-type="commerce-cart-open-link" class="w-commerce-commercecartopenlink cart-button__inner w-inline-block"><img src="{{ 'Cart-Icon-On-Cream.svg' | asset_url }}" loading="lazy" alt="">
+              <div class="w-commerce-commercecartopenlinkcount cart-quantity cream" udy-el="cart-count">{{ cart.item_count }}</div>
+            </a>
+            <div data-node-type="commerce-cart-container-wrapper" style="display:none" class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-rightSidebar cart-wrapper">
+              <div data-node-type="commerce-cart-container" class="w-commerce-commercecartcontainer cart-container">
+                <div class="w-commerce-commercecartheader cart-header">
+                  <a title="Go to cart" href="/cart" class="cart-link w-inline-block">
+                    <h4 class="w-commerce-commercecartheading heading-style-2 cart">{{ 'collection.H4_5' | t }}</h4>
+                  </a>
+                  <a href="#" data-node-type="commerce-cart-close-link" title="Close Cart" class="w-commerce-commercecartcloselink close-button w-inline-block"><img src="{{ 'mini-cart__close_1mini-cart__close.png' | asset_url }}" loading="lazy" alt=""></a>
+                </div>
+                <div class="w-commerce-commercecartformwrapper cart-form-wrapper">
+                  <form data-node-type="commerce-cart-form" class="w-commerce-commercecartform default-state {% if cart.item_count == 0 %}udesly-display-none{% endif %}">
+                    
+                    
+                    <ul role="list" class="cart-list" udy-el="items-list">
+                      {% for item in cart.items %}<li class="cart-item"><img src="{{ item | img_url: 'large' }}" loading="lazy" alt="{{ item.alt }}" class="cart-image">
+                        <div class="cart-item-details-wrapper">
+                          <div class="cart-item-row">
+                            <div class="cart-item-title">{{ item.product.title }}</div>
+                            <div class="cart-item-price">{{ item.price | money }}</div>
+                          </div>
+                          <div class="cart-item-row middle">
+                            {% unless item.product.has_only_default_variant %}<div class="style-5-paragraph">{{ item.variant.title }}</div>{% endunless %}
+                          </div>
+                          <div class="cart-item-row end">
+                            <div class="cart-item-quantity-wrapper cart">
+                              <div class="decrease-qty" udy-el="quantity-minus">{{ 'collection.DIV_6' | t }}</div>
+                              <input class="udesly-fake-number-input cart-item-quantity cart" type="number" name="updates[{{ item.key }}]" id="updates_{{ item.key }}" data-line="{{ forloop.index }}" min="1" value="{{ item.quantity }}" data-inventory-policy="{{ item.variant.inventory_policy }}" data-inventory-quantity="{{ item.variant.inventory_quantity }}">
+                              <div class="increase-qty" udy-el="quantity-plus">{{ 'collection.DIV_7' | t }}</div>
+                            </div>
+                            <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="remove-button" udy-el="remove-item">{{ 'collection.A_8' | t }}</a>
+                          </div>
+                        </div>
+                      </li>{% endfor %}
+                    </ul>
+                    <div class="w-commerce-commercecartfooter cart-footer {% if cart.item_count == 0 %}udesly-display-none{% endif %}" udy-el="cart-actions">
+                      <div class="w-commerce-commercecartlineitem">
+                        <div class="s4-p1 cart">{{ 'collection.DIV_9' | t }}</div>
+                        <div class="w-commerce-commercecartordervalue s4-p1 cart" udy-el="cart-total">{{ cart.total_price | money }}</div>
+                      </div>
+                      <div>
+                        <a href="/checkout" value="Checkout" data-node-type="cart-checkout-button" class="w-commerce-commercecartcheckoutbutton purchase-button" data-loading-text="Hang Tight...">{{ 'collection.A_10' | t }}</a>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="w-commerce-commercecartemptystate {% if cart.item_count != 0 %}udesly-display-none{% endif %}" udy-el="no-items-in-cart">
+                    <div>{{ 'collection.DIV_11' | t }}</div>
+                  </div>
+                  <div style="display:none" data-node-type="commerce-cart-error" class="w-commerce-commercecarterrorstate error-state">
+                    <div class="w-cart-error-msg" data-w-cart-quantity-error="Product is not available in this quantity." data-w-cart-checkout-error="Checkout is disabled on this site." data-w-cart-general-error="Something went wrong when adding this item to the cart." data-w-cart-cart_order_min-error="The order minimum was not met. Add more items to your cart to continue.">{{ 'collection.DIV_12' | t }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <script id="mini-cart-template">
+          window.udeslyMiniCartTemplate = function(item) {
+            return `<li class="cart-item" data-item-id="${item.id}"><img src="${item.image}" loading="lazy" alt="Blue Norther T Shirt" class="cart-image">
+                        <div class="cart-item-details-wrapper">
+                          <div class="cart-item-row">
+                            <div class="cart-item-title">${item.product_title}</div>
+                            <div class="cart-item-price">${item.price}</div>
+                          </div>
+                          <div class="cart-item-row middle">
+                            <div class="style-5-paragraph">${item.variant_title}</div>
+                          </div>
+                          <div class="cart-item-row end">
+                            <div class="cart-item-quantity-wrapper cart">
+                              <div class="decrease-qty" udy-el="quantity-minus">_</div>
+                              <input class="udesly-fake-number-input cart-item-quantity cart" type="number" name="updates[${item.id}]" id="updates_${item.id}" data-line="${item.line}" min="1" value="${item.quantity}">
+                              <div class="increase-qty" udy-el="quantity-plus">+</div>
+                            </div>
+                            <a href="${item.remove}" class="remove-button" udy-el="remove-item">Remove</a>
+                          </div>
+                        </div>
+                      </li>`
+          }
+          </script></div>
+        </div>
+      </div>
+    </div>
+    <header class="inner-hero-section cream">
+      <div class="container">
+        <div class="merch__page-title"><img src="{{ 'merch-spring.svg' | asset_url }}" loading="lazy" alt="" class="merch__title-spring">
+          <h1 class="heading-style-2 merch">{{ 'collection.H1_13' | t }}</h1><img src="{{ 'merch-spring.svg' | asset_url }}" loading="lazy" alt="" class="merch__title-spring">
+        </div>
+      </div>
+    </header>
+    <div class="section cc--products">
+      <div class="container">
+        {% paginate collection.products by settings.collection_products_limit %}<div class="product-coll-wrap w-dyn-list">
+          <div role="list" class="product__grid w-dyn-items">
+            {% for product in collection.products %}<div role="listitem" class="w-dyn-item">
+              <a href="{{ product.url | within: collection.url }}" class="product__link w-inline-block">
+                <!--        Sold out image START      -->
+                  {%- unless product.available -%}
+                      <img src="{{ 'SoldOutBadge.png' | asset_url }}" style="max-width: 60px; position: absolute; left: 5px; top: 5px; z-index: 1000;">
+                  {%- endunless -%}
+				<!--        Sold out image    END      -->
+
+                <img loading="lazy" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}" class="product__image">
+                <!--   Hover Image START -->
+                  {%- if product.images.size > 1 -%} 
+                  <img loading="lazy" width="403" src="{{ product.images.last | img_url: 'large' }}" alt="{{ product.images.last.alt }}" class="product_hover-image"> 
+                  {%- endif -%}
+                <!--   Hover Image END -->
+                <div class="style-3-label">{{ product.title }}</div>
+                <p class="paragraph-2 cc--price">{% if product.price_varies %}{{ product.price_min | money }} - {{ product.price_max | money }}{% else %}{{ product.price | money }}{% endif %}</p>
+              </a>
+            </div>{% endfor %}
+          </div>
+          {% if collection.products == empty %}<div class="w-dyn-empty">
+            <div>{{ 'collection.DIV_14' | t }}</div>
+          </div>{% endif %}
+        </div>{% endpaginate %}
+      </div>
+    </div>
+    <div class="section cc--no-padding-top">
+      <div class="container">
+        <div class="call-out-wrap cc--white-text"><img src="{{ 'Sticker-Black-Merch-Page.svg' | asset_url }}" loading="lazy" alt="Drink Blue stay weird" class="sticker cc--call-out">
+          <div class="call-out__col cc--pink">
+            <div class="mini__textwrap">
+              <div class="heading-style-2 margin-bottom-20">{{ 'collection.DIV_15' | t }}</div>
+              <p class="margin-bottom-30">{{ 'collection.P_16' | t }}</p>
+              <a href="#" class="button-white cc--margin--left-right w-button">{{ 'collection.A_17' | t }}</a>
+              <a href="#" class="button-white cc--margin--left-right w-button">{{ 'collection.A_18' | t }}</a>
+            </div>
+          </div>
+          <div class="call-out__col cc--image-two"></div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer__wave-wrapper">
+        <div class="footer-wave-720"></div>
+      </div>
+      <div class="container">
+        <div class="w-layout-grid footer__grid logo-grid">
+          <div id="w-node-597d663765ba-663765b7" class="footer__row">
+            <a href="/pages/shipping-and-returns" class="style-3-label cc--footer-link-left">{{ 'collection.A_19' | t }}</a>
+            <a href="/pages/contact-us" class="style-3-label cc--footer-link-left">{{ 'collection.A_20' | t }}</a>
+            <a href="#" class="style-3-label cc--footer-link-left">{{ 'collection.A_21' | t }}</a>
+          </div>
+          <div id="w-node-597d663765c1-663765b7"><img src="{{ 'Footer-Crest.svg' | asset_url }}" loading="lazy" alt="Drink responsibly text" class="footer-logo">
+            <div class="footer__row cc--mobile-top">
+              <div class="paragraph-2 cc--footer-margin-right">{{ 'collection.DIV_22' | t }}</div>
+              <a href="#" class="footer__social-link w-inline-block"><img src="{{ 'Instagram.svg' | asset_url }}" loading="lazy" alt="Instagram Logo"></a>
+              <a href="#" class="footer__social-link w-inline-block"><img src="{{ 'Twitter.svg' | asset_url }}" loading="lazy" alt="Twitter Logo"></a>
+              <a href="#" class="footer__social-link w-inline-block"><img src="{{ 'Facebook.svg' | asset_url }}" loading="lazy" alt="Facebook Logo"></a>
+            </div>
+          </div>
+          <div id="w-node-597d663765c3-663765b7" class="footer__row">
+            <a href="/pages/community" class="style-3-label cc--footer-link-right">{{ 'collection.A_23' | t }}</a>
+            <a href="/blogs/news" class="style-3-label cc--footer-link-right">{{ 'collection.A_24' | t }}</a>
+            <a href="/pages/faq" class="style-3-label cc--footer-link-right">{{ 'collection.A_25' | t }}</a>
+            {% unless customer %}<a href="/account/login" class="style-3-label cc--footer-link-right">{{ 'collection.A_26' | t }}</a>{% endunless %}
+            {% if customer %}<a href="/account" class="style-3-label cc--footer-link-right">{{ 'collection.A_27' | t }}</a>{% endif %}
+          </div>
+        </div>
+        <div class="w-layout-grid footer__grid lower">
+          <div id="w-node-a1e17d85b2b0-663765b7" class="paragraph-2 cc--footer-margin-right hide-mobile">{{ 'collection.DIV_28' | t }}</div>
+          <div id="w-node-b01ef277ce80-663765b7" class="footer__row-social-links">
+            <a href="https://www.instagram.com/DrinkBlueNorther/" target="_blank" class="footer__social-link w-inline-block"><img src="{{ 'Instagram.svg' | asset_url }}" loading="lazy" alt="Instagram Logo"></a>
+            <a href="//twitter.com/intent/tweet?url={{ canonical_url }};text={{ page_title }}" class="footer__social-link w-inline-block"><img src="{{ 'Twitter.svg' | asset_url }}" loading="lazy" alt="Twitter Logo"></a>
+            <a href="//www.facebook.com/sharer.php?u={{ canonical_url }}" target="_blank" class="footer__social-link w-inline-block"><img src="{{ 'Facebook.svg' | asset_url }}" loading="lazy" alt="Facebook Logo"></a>
+          </div>
+          <div id="w-node-a1e17d85b2b8-663765b7" class="paragraph-2 cc--footer-margin-left">{{ 'collection.DIV_29' | t }}</div>
+          <div id="w-node-3c10337af083-663765b7" class="footer__row cc--mobile"></div>
+          <div id="w-node-3c10337af06e-663765b7" class="footer__row cc--mobile">
+            <div class="paragraph-2 cc--footer-copyright email">{{ 'collection.DIV_30' | t }}</div>
+            <div class="paragraph-2 cc--footer-copyright">{{ 'collection.DIV_31' | t }}</div>
+          </div>
+          <div id="w-node-3c10337af093-663765b7" class="footer__row cc--legal">
+            <a href="/pages/accessibility" class="paragraph-2 cc--footer-link spaced">{{ 'collection.A_32' | t }}</a>
+            <a href="/pages/legal" class="paragraph-2 cc--footer-link">{{ 'collection.A_33' | t }}</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5ffc6e98ec47027799e7b833" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <!--  Google Tag Manager (noscript)  -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRR8LLF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!--  End Google Tag Manager (noscript)  -->
+  <!--  Klaviyo code below  -->
+  <script async="" type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XbjL6h"></script>
+
+{% include 'notifications' %}{{ 'udesly-shopify.min.js' | asset_url | script_tag }}{{ 'option_selection.js' | shopify_asset_url | script_tag }}
