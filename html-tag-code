@@ -1,0 +1,2 @@
+<!-- Add this after escape }}" in HTML tag -->
+{% unless template contains 'password' %} class="js-age-gate"{% endunless %} >
