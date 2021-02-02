@@ -16,7 +16,7 @@
     <div class="age-gate__left">
       <div class="age-gate__wave"></div>
     </div>
-    <div class="age-gate_right" style="color: #fff;">
+    <div class="age-gate_right">
       <div class="age-gate__from-wrapper">
         <div class="contact-form__block w-form">
          <form class="age-gate__form js-age-gate-form">
