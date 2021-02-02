@@ -1,0 +1,68 @@
+{%- for block in section.blocks -%}
+  {%- unless block.settings.target_page == page.handle -%}
+    {% continue %}
+  {%- endunless -%}
+
+  {%- assign main = block.settings -%}
+
+  {%- capture hero -%}
+	{%- if main.hero_image -%}
+	    {{- main.hero_image | img_url: 'master' -}}
+	{%- endif -%}
+  {%- endcapture -%}
+  {%- capture description_text -%}
+    {{- main.page_description -}}
+  {%- endcapture -%}
+  
+  {%- assign main = nil -%}
+{%- endfor -%}
+
+	<header class="inner-hero-section">
+      <div class="container">
+        <div class="w-layout-grid inner-hero-section__grid">
+          <div>
+            <h1 class="heading-style-2">{{ page.title }}</h1>
+            {% if description_text != blank %}<p>{{ description_text }}</p> {%- endif -%}
+          </div>
+          <div class="inner-hero-section__image-col">
+            <img src="{{ 'std_leaf.png' | asset_url }}" loading="eager" alt="" class="std__leaf__569up">
+            <img src="{{ 'std_leaf_mob.png' | asset_url }}" loading="eager" alt="" class="std__leaf__568down">
+			{%- if hero != blank -%}
+              <img src="{{ hero }}" class="inner-hero-section__image">
+            {%- else -%}
+              <img src="{{ 'image-362x-min.jpg' | asset_url }}" alt="Cases of seltzer" class="inner-hero-section__image">
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+{% schema %}
+{
+  "name": "custom-hero",
+  "class": "custom-section",
+  "tag": "div",
+  "blocks": [{
+    "type": "config",
+    "name": "Page Hero Picker",
+    "settings": [{
+        "type": "page",
+        "id": "target_page",
+        "label": "Which page is this config for?"
+      },
+      {
+        "type": "textarea",
+        "id": "page_description",
+        "label": "Page Description Text (optional)"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero Image (optional)",
+		"info": "Leave blank to use fallback image"  
+      }
+    ]
+  }]
+}
+{% endschema %}
