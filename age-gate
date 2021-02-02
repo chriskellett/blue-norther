@@ -16,7 +16,7 @@
     <div class="age-gate__left">
       <div class="age-gate__wave"></div>
     </div>
-    <div class="age-gate_right">
+    <div class="age-gate_right" style="color: #fff;">
       <div class="age-gate__from-wrapper">
         <div class="contact-form__block w-form">
          <form class="age-gate__form js-age-gate-form">
@@ -68,12 +68,9 @@
             </div>
           </div>
         </div>
+        <p class="p1 age-gate__error color-errors small">You must be at least 21 to enter</p>
         <input type="submit" value="Enter Site" data-wait="Please wait..." id="w-node-8ea9a93ef9a7-a93ef989" class="button-form w-button">
       </div>
-
-        {%- if error_text != blank -%}
-          <p class="p1 age-gate__error color-errors small">{{- error_text -}}</p>
-        {%- endif -%}
       </form>
     </div>
   </div>
@@ -81,6 +78,33 @@
 	</div>
 </div>
 </section>
+
+<style>
+  .age-gate__form {
+    position: relative;
+  }
+  
+  .age-gate__error {
+    position: absolute;
+    display: none;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    color: #d41341;
+    font-size: 10px;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 991px) {
+    .age-gate__error {
+      bottom: -40px;
+    }
+  }
+
+  .has-error .age-gate__error {
+    display: block;
+  }
+</style>
 
 <!--  Age Gate Start  -->
   <script type="text/javascript">
