@@ -37,6 +37,8 @@
       </div>
     </header>
 
+<!-- <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","inner-hero-section");</script> -->
+
 
 {% schema %}
 {
