@@ -1,0 +1,44 @@
+
+<!-- find <div class="item__qty-price__wrapper"> and make sure it looks like below -->
+
+<div class="item__qty-price__wrapper">
+                    <div class="item__qty">
+<!-- QTY ends herer -->         
+                      
+                      <div class="item__qty-input">
+                        <div class="item__qty-stepper minus-qty counter-down" udy-el="quantity-minus">
+                          <div class="text-block-11">{{ 'cart.DIV_15' | t }}</div>
+                        </div>
+                        <input type="number" name="updates[{{ item.key }}]" id="updates_{{ item.key }}" data-line="{{ forloop.index }}" min="1" value="{{ item.quantity }}" data-inventory-policy="{{ item.variant.inventory_policy }}" data-inventory-quantity="{{ item.variant.inventory_quantity }}" class="item-quantity product-counter-input w-input">
+                        <div class="item__qty-stepper plus-qty counter-up" udy-el="quantity-plus" st>
+                          <div>{{ 'cart.DIV_16' | t }}</div>
+                        </div> 
+                      </div>
+<!-- QTY ends herer --> 
+
+                    </div>
+                    <div class="item__price">
+                      <div class="text-block-9">{{ item.final_line_price | money }}</div>
+            </div>
+</div>
+
+
+
+
+<!-- Add this script to the page -->
+
+    <!-- QTY Product Script -->
+      <script>
+      $('.item__qty-input .item__qty-stepper').on('click', function(){
+          var qty = parseInt($(this).parent('.item__qty-input').find('.item-quantity').val());
+          if($(this).hasClass('plus-qty')) {
+            qty++;
+          }else {
+            if(qty > 1) {
+              qty--;
+            }
+          }
+          qty = (isNaN(qty))?1:qty;
+          $(this).parent('.item__qty-input').find('.item-quantity').val(qty);
+        }); 
+    </script>  
