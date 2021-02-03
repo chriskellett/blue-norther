@@ -1,0 +1,46 @@
+ <div class="footer__wave-wrapper">
+        <div class="footer-wave-720"></div>
+      </div>
+      <div class="container">
+        <div class="w-layout-grid footer__grid logo-grid">
+          <div id="w-node-597d663765ba-663765b7" class="footer__row">
+            <a hide-nav="shipping" href="/pages/shipping-and-returns" class="style-3-label cc--footer-link-left">Shipping &amp;&nbsp;Returns</a>
+            <a href="/pages/contact-us" class="style-3-label cc--footer-link-left">Contact</a>
+            <a href="/pages/press" class="style-3-label cc--footer-link-left">Press</a>
+          </div>
+          <div id="w-node-597d663765c1-663765b7"><img src="{{ 'Footer-Crest.svg' | asset_url }}" loading="lazy" alt="Drink responsibly text" class="footer-logo">
+            <div class="footer__row cc--mobile-top">
+              <div class="paragraph-2 cc--footer-margin-right">Proudly Brewed in Austin, TX</div>
+              <a href="https://www.facebook.com/drinkbluenorther/" target="_blank" class="footer__social-link w-inline-block"><img src="{{ 'Facebook.svg' | asset_url }}" loading="lazy" alt="Facebook Logo"></a>
+              <a href="https://www.instagram.com/DrinkBlueNorther/" target="_blank" class="footer__social-link w-inline-block"><img src="{{ 'Instagram.svg' | asset_url }}" loading="lazy" alt="Instagram Logo"></a>
+              <a href="https://twitter.com/DrinkBlueYall" target="_blank" class="footer__social-link w-inline-block"><img src="{{ 'Twitter.svg' | asset_url }}" loading="lazy" alt="Twitter Logo"></a>
+            </div>
+          </div>
+          <div id="w-node-597d663765c3-663765b7" class="footer__row">
+            <a href="/pages/community" class="style-3-label cc--footer-link-right">Community</a>
+            <a href="/blogs/news" class="style-3-label cc--footer-link-right">Recipes</a>
+            <a hide-nav="faq" href="/pages/faq" class="style-3-label cc--footer-link-right">Faq</a>
+            {% unless customer %}<a href="/account/login" class="style-3-label cc--footer-link-right">Login</a>{% endunless %}
+            {% if customer %}<a href="/account" class="style-3-label cc--footer-link-right">Account</a>{% endif %}
+          </div>
+        </div>
+        <div class="w-layout-grid footer__grid lower">
+          <div id="w-node-a1e17d85b2b0-663765b7" class="paragraph-2 cc--footer-margin-right hide-mobile">Proudly Brewed in Austin, TX</div>
+          <div id="w-node-b01ef277ce80-663765b7" class="footer__row-social-links">
+            <a href="https://www.facebook.com/drinkbluenorther/" target="_blank" class="footer__social-link w-inline-block"><img src="{{ 'Facebook.svg' | asset_url }}" loading="lazy" alt="Facebook Logo"></a>
+            <a href="https://www.instagram.com/DrinkBlueNorther/" target="_blank" class="footer__social-link w-inline-block"><img src="{{ 'Instagram.svg' | asset_url }}" loading="lazy" alt="Instagram Logo"></a>
+            <a href="https://twitter.com/DrinkBlueYall" target="_blank" class="footer__social-link w-inline-block"><img src="{{ 'Twitter.svg' | asset_url }}" loading="lazy" alt="Twitter Logo"></a>
+          </div>
+          <div id="w-node-a1e17d85b2b8-663765b7" class="paragraph-2 cc--footer-margin-left">hello@drinkbluenorther.com</div>
+          <div id="w-node-3c10337af083-663765b7" class="footer__row cc--mobile"></div>
+          <div id="w-node-3c10337af06e-663765b7" class="footer__row cc--mobile">
+            <div class="paragraph-2 cc--footer-copyright email">hello@drinkbluenorther.com</div>
+            <div class="paragraph-2 cc--footer-copyright">© Blue Norther 2020 • Site by <a href="https://www.barrelny.com/" target="_blank" class="barrel__link">Barrel</a>
+            </div>
+          </div>
+          <div id="w-node-3c10337af093-663765b7" class="footer__row cc--legal">
+            <a href="/pages/accessibility" class="paragraph-2 cc--footer-link spaced">Accessibility</a>
+            <a href="/pages/legal" class="paragraph-2 cc--footer-link">Legal</a>
+          </div>
+        </div>
+      </div>
