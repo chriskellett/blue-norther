@@ -1,0 +1,14 @@
+<!-- See Login page theme Bn-complete-feb-3 11-16 -->
+
+<!-- Swop login heading  on click -->
+<script type="text/javascript">
+    $(function () {
+        $("#clickMe").click(function () { $("#textChange").html("Forgot Your Password?"); });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#clickMe2").click(function () { $("#textChange").html("{{ 'customers_login.H1_13' | t }}"); });
+    });
+</script>
+<!-- Swop login heading  on click -->
