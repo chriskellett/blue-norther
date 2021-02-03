@@ -1,0 +1,21 @@
+<!-- Find this -->     
+                     
+<div class="variants-wrapper">
+</div>
+
+
+<!-- Replace with this -->
+
+<div class="variants-wrapper">
+
+<!--  Order variants START                -->
+                        {% unless line_item.product.has_only_default_variant %}
+                          <ul>
+                            {% for option in line_item.options_with_values %}
+                              <li class="s4-p1 item-variant">{{ option.name }}: {{ option.value }}</li>
+                            {% endfor %}
+                          </ul>
+                        {% endunless %}
+<!-- ORDER variants  END                 -->
+                        
+</div>
