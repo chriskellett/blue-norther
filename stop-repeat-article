@@ -1,0 +1,35 @@
+<!-- Place this just after <div class="div-block-13"><img src="{{ 'more-recipes-text.png' | asset_url }}" loading="lazy" width="148" alt="More Recipes Text"></div> -->
+<!-- Two closing divs (</div>) before footer.
+
+
+<!-- Dont show this article in the list -->
+         {%- capture existing_article -%}
+                  {{- article.handle | strip -}}
+         {%- endcapture -%}
+        <div class="recipes-collection w-dyn-list">
+          <div role="list" class="recipe-cards__grid w-dyn-items">
+            {%- assign count = 3 %}
+            {% for article in blog.articles %}
+              {%- if count > 0 -%}
+                  {% if article.handle == existing_article %}
+                  	{%- continue -%}
+                  {% else %}
+                    <div id="w-node-496738305cd4-fae7b851" role="listitem" class="recipe-card w-dyn-item">
+
+                      <a href="{{ article.url }}" class="recipe__link-block w-inline-block">
+                        <div class="recipe-card__image-holder"><img loading="lazy" width="669" src="{{ article | img_url: 'large' }}" alt="{{ article.alt }}" class="recipe-card__image"></div>
+                        <div class="div-block-27">
+                          <div class="style-3-label centered recipe-title">{{ article.title }}</div>
+                          <div class="style-5-paragraph centered recipe-headline">{% include 'blog-post-excerpt' %}</div>
+                        </div>
+                        <div class="recipe-card__link">{{ 'article.DIV_17' | t }}</div>
+                      </a>
+
+                  </div>
+                    {%- assign count = count | minus: 1 -%}
+                 {% endif %}
+              {% endif %}
+           {% endfor %}
+          </div>
+        </div>
+<!-- Dont show this article in the list -->
