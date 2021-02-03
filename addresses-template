@@ -1,0 +1,5 @@
+<!-- Find this -->
+{% form 'customer_address', customer.new_address %}
+
+<!-- Change to this -->
+{% form 'customer_address', customer.new_address, class: 'add-addr-2' %}
