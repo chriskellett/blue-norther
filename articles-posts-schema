@@ -1,0 +1,19 @@
+      <!-- Add this code into the schema -->
+     
+      
+       {
+        "type": "range",
+        "id": "article_page_posts_limit",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "label": "Articles per Page (Article page)",
+        "default": 3
+      },
+      
+      
+      <!-- Change this code in the article template -->
+      <!-- From this -->
+      {% paginate blog.articles by settings.blog_posts_limit %}
+      <!-- To this -->
+      {% paginate blog.articles by settings.article_page_posts_limit %}
