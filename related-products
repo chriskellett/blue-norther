@@ -1,0 +1,34 @@
+<!-- Related Products START -->
+  {%- assign related-products = product.metafields.related-products -%}
+	{%- if related-products.size > 0 -%}
+    <div class="section cc--related-products">
+        <div class="container">
+        <div class="related__produucts-text"><img src="{{ 'Related-Products-Text.png' | asset_url }}" loading="lazy" width="202.5" alt="Related Products"><img src="{{ 'Related-Cactus.svg' | asset_url }}" loading="lazy" alt="" class="related-cactus"></div>
+            <div class="product-coll-wrap cc--related w-dyn-list">
+                <div role="list" class="product__grid w-dyn-items">
+                {%- for field in related-products  -%}
+                  {%- assign related-product = field | last -%}
+                  {%- assign related-product = all_products[related-product] -%}
+                  	{%- if related-product != blank -%}
+                    <div role="listitem" class="w-dyn-item">
+                      <a href="{{ related-product.url | within: collection.url }}" class="product__card w-inline-block">{% unless related-product.available %}<img src="{{ 'sold-out-sticker.png' | asset_url }}" loading="lazy" width="52" alt="" class="image-41">{% endunless %}
+                        <div class="product__image__holder"><img loading="lazy" src="{{ related-product.featured_image.src | img_url: 'large' }}" alt="{{ related-product.featured_image.alt }}" class="product__image-main">
+                            <div class="product__image-hover w-embed"><img loading="lazy" src="{{ related-product.images.last.src | img_url: 'large' }}" alt="{{ related-product.images.last.alt }}" "=""></div></div><div class=" product-card__text-wrapper">
+                            <div class="style-3-label title">{{ related-product.title }}</div>
+                            <p class="paragraph-2 cc--price">{% if related-product.price_varies %}{{ related-product.price_min | money }} - {{ related-product.price_max | money }}{% else %}{{ related-product.price | money }}{% endif %}</p>
+                         </div>
+                      </a>
+                    </div>
+                  	{%- endif -%}
+                  {%- assign product = nil -%}
+                {%- endfor -%}
+                </div>   
+            </div>
+        </div>
+    </div>	
+	{% endif %}
+{%- assign related-products = nil -%}
+<!-- Related Products END -->
+
+<!-- READ FIRST put the above just above the tag footer eg -->
+<footer class="footer">
