@@ -1,0 +1,38 @@
+<script>
+$( "#create_customer" ).validate({
+  console.log($)
+  rules: {
+    "email-2": {
+      required: true,
+      email: true
+    }
+  }
+});
+ 
+//  ADD USER TO KLAVIYO LIST IF THE CHECKBOX IS FILLED AND EMAIL FILLED ----- START 
+
+  
+  const klaviyoForms = document.getElementById('w-node-e67e5ef4adc7-1ee7b8aa');
+
+  klaviyoForms.addEventListener('click', handleFormSubmit);
+
+  function handleFormSubmit(event) {
+    if($("#checkbox-subscribe").prop('checked') == true && $('[name="customer[email]"]').val()){
+      $.ajax({
+        type: "POST",
+        url: "https://manage.kmail-lists.com/ajax/subscriptions/subscribe",
+        data: {
+          g: "Ybtmkb",
+          $first_name: $('[name="customer[first_name]"]').val(),
+          $last_name: $('[name="customer[last_name]"]').val(),
+          $email: $('[name="customer[email]"]').val(),
+          $consent: "email"
+        }
+      });                    
+    }
+  }
+  
+   //  ADD USER TO KLAVIYO LIST IF THE CHECKBOX IS FILLED AND EMAIL FILLED ---- END
+  
+  
+</script>
