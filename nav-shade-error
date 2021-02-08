@@ -5,7 +5,7 @@
 <!-- The shade needs to activate the shade hide too -->
 <!-- The ID for the data id for the shade is https://drinkbluenorther.com/?preview_theme_id=118693494935-->
 <div data-w-id="7ff7c442-0650-552c-8a78-36b313394179" class="nav_background-shade" style="opacity: 0;"></div>
-
+<script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script>
 
 </body>
 </html>
