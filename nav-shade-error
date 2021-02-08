@@ -5,11 +5,28 @@
 <!-- The shade needs to activate the shade hide too -->
 <!-- The ID for the data id for the shade is https://drinkbluenorther.com/?preview_theme_id=118693494935-->
 
-<!-- Change this -->
+<!-- A | Change this -->
 <div class="nav_background-shade" style="opacity: 0;"></div>
 
 <!-- To this -->
 <div data-w-id="7ff7c442-0650-552c-8a78-36b313394179" class="nav_background-shade" style="opacity: 0;"></div>
+
+
+
+<!-- B | Change this -->
+<a title="Close Links Menu" href="#" class="close-menu-button w-inline-block"><img src="{{ 'Close-X.svg' | asset_url }}" loading="eager" alt=""></a>
+
+<!-- To this -->
+<a title="Close Links Menu" data-w-id="2dfd2a81-b3d6-325e-c33c-7661efa7b798" href="#" class="close-menu-button w-inline-block"><img src="{{ 'Close-X.svg' | asset_url }}" loading="eager" alt=""></a>
+
+
+
+<!-- C | Change this -->
+<div class="nav-menu-button small w-nav-button"><img src="{{ 'Nav-On-Cream.svg' | asset_url }}" loading="lazy" width="25" alt=""></div>
+
+<!-- To this -->
+<div data-w-id="2dfd2a81-b3d6-325e-c33c-7661efa7b7a8" class="nav-menu-button small w-nav-button"><img src="{{ 'Nav-On-Cream.svg' | asset_url }}" loading="lazy" width="25" alt=""></div>
+
 
 <!-- change the webflow script to the following -->
 <script src="{{ 'webflow2.js' | asset_url }}" type="text/javascript"></script>
